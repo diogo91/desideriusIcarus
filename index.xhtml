@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:jsf="http://xmlns.jcp.org/jsf">
+
+    <h:head>
+        <f:facet name="first">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+            <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+            <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+            <meta name="apple-mobile-web-app-capable" content="yes" />            
+            <link rel="icon" type="image/x-icon" href="#{request.contextPath}/resources/images/favicon.ico"/>
+        </f:facet>
+        <title>Desiderius</title>
+        <script>
+            if (document.location.hostname === "homespace.com.br") {
+                (function(i, s, o, g, r, a, m) {
+                    i['GoogleAnalyticsObject'] = r;
+                    i[r] = i[r] || function() {
+                        (i[r].q = i[r].q || []).push(arguments)
+                    }, i[r].l = 1 * new Date();
+                    a = s.createElement(o),
+                            m = s.getElementsByTagName(o)[0];
+                    a.async = 1;
+                    a.src = g;
+                    m.parentNode.insertBefore(a, m)
+                })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+                ga('create', 'UA-79514638-1', 'auto');
+                ga('send', 'pageview');
+            }
+        </script>
+        <style>
+            #landing-page-wrapper #landing-top-bar .landing-nav-bar ul li:last-child{
+                padding-left: 0;
+            }
+        </style>
+    </h:head>
+
+    <h:body>
+        <div id="landing-page-wrapper">
+            <div id="landing-top-bar">
+                <div class="landing-container">
+                    <div class="landing-logo">
+                        <a href="/index.xhtml">
+                            <h:graphicImage name="images/logo.svg" id="logo" library="icarus-layout" />
+                        </a>
+                    </div>
+                    <a id="landing-menubar-button" href="#">
+                        <i class="fa fa-bars" aria-hidden="true"></i>
+                    </a>
+                    <div id="landing-nav" class="sidebar-nav">
+                        <ul id="landing-sidebar-container" class="sidebar-nav-container">
+                            <li class="sidebar-menuitem">
+                                <a href="dashboard.xhtml" class="menuLink">
+                                    <div class="tablet-view">
+                                        <span class="menu-text">Home</span>
+                                        <i class="fa fa-angle-right" aria-hidden="true"></i>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="sidebar-menuitem">
+                                <a href="#landing-feature" class="menuLink">
+                                    <div class="tablet-view">
+                                        <span class="menu-text">Recursos</span>
+                                        <i class="fa fa-angle-right" aria-hidden="true"></i>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="sidebar-menuitem">
+                                <a href="#landing-promotion" class="menuLink">
+                                    <div class="tablet-view">
+                                        <span class="menu-text">O que é</span>
+                                        <i class="fa fa-angle-right" aria-hidden="true"></i>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="sidebar-menuitem">
+                                <a href="#landing-pricing" class="menuLink">
+                                    <div class="tablet-view">
+                                        <span class="menu-text">Como Utilizar</span>
+                                        <i class="fa fa-angle-right" aria-hidden="true"></i>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="sidebar-menuitem">
+                                <a href="#landing-video" class="menuLink">
+                                    <div class="tablet-view">
+                                        <span class="menu-text">FAQ</span>
+                                        <i class="fa fa-angle-right" aria-hidden="true"></i>
+                                    </div>
+                                </a>
+                            </li>
+                            <h:form prependId="false">
+                                <li class="sidebar-menuitem">
+                                    <a href="createAccount.xhtml?faces-redirect=true" class="menuLink">
+                                        <div class="tablet-view">
+                                            <span class="menu-text">Login</span>
+                                            <i class="fa fa-angle-right" aria-hidden="true"></i>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="sidebar-menuitem">
+                                    <a href="createAccount.xhtml?faces-redirect=true" class="menuLink">
+                                        <div class="tablet-view">
+                                            <span class="menu-text">Criar Conta</span>
+                                            <i class="fa fa-angle-right" aria-hidden="true"></i>
+                                        </div>
+                                    </a>
+                                </li>
+                            </h:form>
+                        </ul>
+                    </div>
+                    <div class="landing-nav-bar">
+                        <ul>
+                            <li><a href="">Home</a></li>
+                            <li><a href="#landing-feature">Recursos</a></li>
+                            <li><a href="#landing-promotion">O que é</a></li>
+                            <li><a href="#landing-pricing">Como Utilizar</a></li>
+                            <li><a href="#landing-video">FAQ</a></li>
+                            <li><h:form prependId="false"><p:commandButton id="landingButton2" actionListener="#{loggerController.logLogin()}" action="login.xhtml?faces-redirect=true" value="Login" class="blueBorderedButton"/></h:form></li>
+                            <li><h:form prependId="false"><p:commandButton id="landingButton3" actionListener="#{loggerController.logCreateAccount()}" action="createAccount.xhtml?faces-redirect=true" value="Criar Conta" class="blueBorderedButton"/></h:form></li>
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div id="landing-slogan">
+                <div class="opacity"/>
+                <div class="landing-container slogan-container" >
+                    <h1>Que tal uma contabilidade invisível?</h1>
+                    <p>
+                        Desiderius integra a contabilidade com o seu negócio de maneira online, deixando a sua rotina muito mais fluída.
+                    </p>
+                    <h:form prependId="false">
+                        <h:panelGrid cellpadding="3" columns="2" style="margin: 0 auto">
+                            <p:commandButton id="landingButton" action="#{loggerController.logSaibaMais()}" oncomplete="scrollDown()" 
+                                             value="Saiba Mais"/>
+                            <p:commandButton id="landingButton4" actionListener="#{loggerController.logBudget()}" action="makeBudget.xhtml?faces-redirect=true" 
+                                             value="Solicite um orçamento" />
+                        </h:panelGrid>
+                    </h:form>
+                </div>
+            </div>
+            <div id="landing-feature">
+                <div class="landing-container">
+                    <h1 style="text-align: center; color: #4a4a4a">Por que integrar-se conosco?</h1>
+                    <div class="ui-g">
+                        <div class="ui-g-3 ui-sm-12 ui-md-6 ui-lg-3 centerText">
+                            <i class="fa fa-magic fa-feature" aria-hidden="true"></i>
+                            <h2>Contabilidade Invisível</h2>
+                            <p>
+                                Trabalhe com "Business Process with Embedded Accounting". Isto significa que os nossos robôs se integram com o seu sistema e fazem tudo automaticamente!
+                            </p>
+                        </div>
+                        <div class="ui-g-3 ui-sm-12 ui-md-6 ui-lg-3 centerText">
+                            <i class="fa fa-money fa-feature" aria-hidden="true"></i>
+                            <h2>Eliminar Custos</h2>
+                            <p>
+                                Com uma contabilidade automatizada, eliminaremos grande parte dos custos gastos com contadores. 
+                            </p>
+                        </div>
+                        <div class="ui-g-3 ui-sm-12 ui-md-6 ui-lg-3 centerText">
+                            <i class="fa fa-leaf fa-feature" aria-hidden="true"></i>
+                            <h2>Zero Paper</h2>
+                            <p>
+                                A contabilidade é toda online: elimine o papel e a caneta e faça tudo com poucos cliques.
+                            </p>
+                        </div>
+                        <div class="ui-g-3 ui-sm-12 ui-md-6 ui-lg-3 centerText">
+                            <i class="fa fa-check fa-feature" aria-hidden="true"></i>
+                            <h2>Zero Backoffice</h2>
+                            <p>
+                                Utilize uma contabilidade robotizada (Robotic Accounting) onde, após regras de compliance definidas, tudo é feito por robôs!
+                            </p>
+                        </div>
+                        <div class="ui-g-3 ui-sm-12 ui-md-6 ui-lg-3 centerText">
+                            <i class="fa fa-clock-o fa-feature" aria-hidden="true"></i>
+                            <h2>Real-Time</h2>
+                            <p>
+                                Tenha todos os relatórios disponíveis instantaneamente, ao fechamento das competências. 
+                            </p>
+                        </div>
+                        <div class="ui-g-3 ui-sm-12 ui-md-6 ui-lg-3 centerText">
+                            <i class="fa fa-list-ul fa-feature" aria-hidden="true"></i>
+                            <h2>Plano de Contas Intuitivo</h2>
+                            <p>
+                                Sabemos que o plano de contas pode ser complexo e tedioso. Elaboramos um plano de contas enxuto, que é fácil de ser interpretado.
+                            </p>
+                        </div>
+                        <div class="ui-g-3 ui-sm-12 ui-md-6 ui-lg-3 centerText">
+                            <i class="fa fa-check fa-feature" aria-hidden="true"></i>
+                            <h2>Garantia de compliance</h2>
+                            <p>
+                                Após regras de governança definidas, você não tem o que se preocupar. Os nosso robôs não deixarão nada fora das normas acontecer!
+                            </p>
+                        </div>
+                        <div class="ui-g-3 ui-sm-12 ui-md-6 ui-lg-3 centerText">
+                            <i class="fa fa-percent fa-feature" aria-hidden="true"></i>
+                            <h2>Indicadores online</h2>
+                            <p>
+                                Tenha acesso a diversos relatórios contábeis, para auxílio na tomada de decisões.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="landing-promotion">
+                <div class="landing-container promotion-container">
+                    <div class="ui-g-12 vertical-align-helper"></div>
+                    <h:graphicImage name="images/landing.png" id="screenLanding" library="icarus-layout" />
+                    <div class="ui-g-6 ui-sm-12 CenterMobile">
+                        <h2>Desiderius. O que é?</h2>
+                        <p>
+                            Desiderius é uma engine de contabilidade que tem como<br/>
+                            conceito fundamental a automação dos eventos contábeis <br/>
+                            encapsulados em uma transação de negócios.
+                        </p>
+                        <p>
+                            O propósito maior da plataforma é implementar, de forma <br/> 
+                            100% sem papel, as regras contábeis que, em sua <br/> 
+                            grande maioria, são originadas em componentes externos.
+                        </p>
+                        <p>
+                            Levamos a contabilidade robotizada até você, de forma<br/> 
+                            que você só tenha que se preocupar com uma coisa: o seu negócio.<br/> 
+                        </p>
+                        <p>
+                            Deixe a contabilidade conosco!
+                        </p>
+                        <p style="margin-top: 30px">
+                            Ficou interessado? Clique no botão abaixo e solicite um orçamento.
+                        </p>
+                        <h:form prependId="false">
+                            <h:panelGrid cellpadding="3" columns="2" style="margin: 0 auto">
+                                <p:commandButton class="black-button" value="Solicitar Orçamento" actionListener="#{loggerController.logBudgetOne()}" action="makeBudget.xhtml?faces-redirect=true"/>
+                            </h:panelGrid>
+                        </h:form>
+                    </div>
+                </div>
+                <!--<h:graphicImage name="images/icarus_screen.png" id="screen" library="icarus-layout" />-->
+            </div>
+            <div id="landing-pricing">
+                <div class="landing-container pricing-container">
+                    <h2>Como utilizar Desiderius?</h2>
+                </div>
+                <div class="ui-g landing-container price-container">
+                    <div class="ui-g-3 ui-sm-12">
+                        <div class="box-pricing">
+                            <div class="box-header">
+                                <h2>1</h2>
+                            </div>
+                            <div class="properties">
+                                <p>
+                                    Filler
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ui-g-3 ui-sm-12">
+                        <div class="box-pricing" style="background:#409cdc;">
+                            <div class="box-header" style="background:#2c78c7;">
+                                <h2 id="price" style="color:#fff;">2</h2>
+                            </div>
+                            <div class="properties">
+                                <p style="color:#fff;">
+                                    Filler
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ui-g-3 ui-sm-12">
+                        <div class="box-pricing">
+                            <div class="box-header">
+                                <h2>3</h2>
+                            </div>
+                            <div class="properties">
+                                <p>
+                                    Filler   
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ui-g-3 ui-sm-12">
+                        <div class="box-pricing" style="background:#409cdc;">
+                            <div class="box-header" style="background:#2c78c7;">
+                                <h2 id="price" style="color:#fff;">4</h2>
+                            </div>
+                            <div class="properties">
+                                <p style="color:#fff;">
+                                    Filler
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ui-g-12 ui-sm-12">
+                        <p style="font-size: 20px; margin-top: 80px">Para mais informações, clique no botão abaixo e enviaremos um orçamento para você.</p>
+                        <h:form prependId="false">
+                            <h:panelGrid cellpadding="3" columns="2" style="margin: 0 auto">
+                                <p:commandButton value="Solicitar Orçamento" actionListener="#{loggerController.logBudgetTwo()}" action="makeBudget.xhtml?faces-redirect=true"/>
+                            </h:panelGrid>
+                        </h:form>
+                    </div>
+                </div>
+            </div>    
+            <div id="landing-video">
+                <div class="landing-container">
+                    <h2>FAQ</h2>
+                    <p:accordionPanel value="#{indexHelpController.helperBean}" var="bean" multiple="false" >
+                        <p:ajax event="tabChange" listener="#{indexHelpController.onTabChange}" />
+                        <p:tab title="#{bean.title}">
+                            #{bean.message}
+                        </p:tab>
+                    </p:accordionPanel>
+                </div>
+            </div>
+            <div id="landing-footer">
+                <div class="landing-container">
+                    <div class="footer-container">
+                        <div class="ui-g">
+                            <div class="ui-g-12">
+                                <h:graphicImage name="images/logo.svg" id="logo2" library="icarus-layout" />
+                                <div class="icarus">
+                                </div>
+                            </div>
+                            <div class="ui-g-12">
+                                <p style="display:inline-block;">Engine de contabilidade robotizada.</p>
+                                <div>
+                                    <div style="float:left">
+                                        <address>(41) 3148-0595<br/> suporte@symbiotics.com.br<br/>Curitiba-PR</address>
+                                    </div>
+                                    <div class="footer-nav">
+                                        <ul class="nav">
+                                            <li><a href="#">Home</a></li>
+                                            <li><a href="#landing-feature">Recursos</a></li>
+                                            <li><a href="#landing-promotion">O que é</a></li>
+                                            <li><a href="#landing-pricing">Como Utilizar</a></li>
+                                            <li><a href="#landing-video">FAQ</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ui-g">
+                        <div class="ui-g-12">
+                            <p id="copy">2016 Desiderius, by <a href="https://symbiotics.com.br" style="color: #F00">Symbiotics</a>. Todos os direitos reservados </p>
+                            <div class="footer-icons">
+                                <!--
+                                <i class="fa fa-facebook-official" aria-hidden="true"></i>
+                                <i class="fa fa-twitter-square" aria-hidden="true"></i>
+                                -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <h:outputStylesheet name="css/layout-green.css" library="icarus-layout" />
+        <script>
+            var $this = this;
+            this.landingNav = $('#landing-nav');
+            this.landingMenuButton = $('#landing-menubar-button');
+
+            this.landingMenuButton.on('click', function(e) {
+                $this.toggleMenu();
+                e.preventDefault();
+            });
+
+            /*$('#landing-sidebar-container li.sidebar-menuitem').on('click', function(e) {
+             $this.toggleMenu();// This should close the menu.
+             });*/
+
+            function toggleMenu() {
+                if (this.landingNav.hasClass('landing-mobile-menu')) {
+                    this.landingNav.removeClass('landing-mobile-menu');
+                }
+                else {
+                    $this.landingNav.addClass('landing-mobile-menu');
+                }
+            }
+
+            function scrollDown() {
+                $this.toggleMenu(); // When scrolling close the menu.
+                $('html, body').animate({
+                    scrollTop: $("#landing-feature").offset().top
+                }, 900)
+            }
+            ;
+
+        </script>
+    </h:body>
+</html>

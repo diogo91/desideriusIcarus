@@ -1,0 +1,46 @@
+<ui:composition 
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:p="http://primefaces.org/ui">
+    <div id="top-bar-wrapper">
+        <div id="top-bar">
+            <div class="top-menu">
+                <div class="top-bar-icon" style="position: relative">
+                    <h:form>
+                        <p:commandLink action="#{accessController.doLogout}" ajax="false" class="faSizeFixer" style="height: 100%; width:100%; display:inline-block; position: absolute; right: 0; top: 0px">
+                            <i class="fa fa-sign-out" aria-hidden="true"></i>
+                        </p:commandLink>
+                    </h:form>
+                </div>
+            </div>
+            <div class="top-menu">
+                <div id="userSettings" class="top-bar-icon">
+                    <div class="faSizeFixer">
+                        <i class="fa fa-cogs" aria-hidden="true"></i>
+                        <ul class="userSettingsMenu">
+                            <li><a href="/pages/account/userSettings.xhtml">Configurações</a></li>
+                            <li><a href="/pages/account/addressList.xhtml">Endereços</a></li>
+                            <li><a href="/pages/account/changePassword.xhtml">Trocar Senha</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="top-bar-profile">
+                <div class="profile-name">
+                    <span>Bem-vindo, #{accessController.nickname}.</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" >
+        function toggler(e) {
+            var ul = e.target.parentNode.querySelector('.userSettingsMenu');
+            console.log(e.target);
+            if (ul) {
+                ul.classList.toggle('userSettingsMenuOpen');
+            }
+        }
+        document.getElementById('userSettings').addEventListener('click', toggler);
+    </script>
+</ui:composition>
